@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="com.baidu.mapapi.map.MapView"/>
+<fullyQualifiedTypeName name="com.baidu.mapapi.SDKInitializer"/>
+<fullyQualifiedTypeName name="com.example.baidumaptest.R.id"/>
+<fullyQualifiedTypeName name="com.baidu.mapapi.map.BaiduMap"/>
+<fullyQualifiedTypeName name="android.content.Context"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="android.location.LocationManager"/>
+<fullyQualifiedTypeName name="android.location.Location"/>
+<fullyQualifiedTypeName name="android.location.LocationListener"/>
+<fullyQualifiedTypeName name="com.baidu.mapapi.model.LatLng"/>
+<fullyQualifiedTypeName name="com.baidu.mapapi.map.MapStatusUpdate"/>
+<fullyQualifiedTypeName name="com.baidu.mapapi.map.MapStatusUpdateFactory"/>
+<fullyQualifiedTypeName name="android.view.Window"/>
+<fullyQualifiedTypeName name="android.widget.Toast"/>
+<fullyQualifiedTypeName name="com.baidu.mapapi.map.MyLocationData"/>
+<fullyQualifiedTypeName name="com.baidu.mapapi.map.MyLocationData.Builder"/>
+</qualifiedTypeNameHistroy>

@@ -1,0 +1,210 @@
+package com.example.baidumaptest;
+
+import java.util.List;
+
+import com.baidu.mapapi.SDKInitializer;
+import com.baidu.mapapi.map.BaiduMap;
+import com.baidu.mapapi.map.MapStatusUpdate;
+import com.baidu.mapapi.map.MapStatusUpdateFactory;
+import com.baidu.mapapi.map.MapView;
+import com.baidu.mapapi.model.LatLng;
+
+import android.app.Activity;
+import android.content.Context;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.Window;
+import android.widget.Toast;
+
+public class MainActivity extends Activity {
+	private MapView mapview;
+	private BaiduMap baidumap;
+	private LocationManager locationmanager;
+	private String provider;
+	private boolean isFirstLocate=true;
+	private Location location;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		SDKInitializer.initialize(getApplicationContext());
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
+		setContentView(R.layout.activity_main);
+		mapview=(MapView)findViewById(R.id.map_view);
+		
+		baidumap=mapview.getMap();
+		locationmanager=(LocationManager) getSystemService(Context.LOCATION_SERVICE);
+		locationmanager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 1000, 0, locationListener);
+		locationmanager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 1000, 0, locationListener);
+		List<String>providerlist=locationmanager.getProviders(true);
+		
+		if(providerlist.contains(LocationManager.GPS_PROVIDER)){
+			provider=LocationManager.GPS_PROVIDER;
+			Toast.makeText(this, "当前使用GPS定位!",Toast.LENGTH_SHORT).show();
+			
+		}else if(providerlist.contains(LocationManager.NETWORK_PROVIDER)){
+			provider=LocationManager.NETWORK_PROVIDER;
+			Toast.makeText(this,"当前使用网络定位!",Toast.LENGTH_SHORT).show();
+			
+		}
+		else{
+			Toast.makeText(this,"无定位服务!,请打开手机定位功能!",Toast.LENGTH_SHORT).show();
+			return;
+		}
+		
+	         location=locationmanager.getLastKnownLocation(provider);
+		
+		if(location!=null){
+			navigateTo(location);
+		}else{
+			Toast.makeText(this,"位置为空！",Toast.LENGTH_SHORT).show();
+			
+		}
+		
+		
+		
+		locationmanager.requestLocationUpdates(provider, 1000, 1, locationListener);
+		
+		
+		
+	}
+
+	
+	LocationListener locationListener=new LocationListener(){
+
+		@Override
+		public void onLocationChanged(Location location) {
+			if(location!=null){
+				navigateTo(location);
+			}
+			// TODO 自动生成的方法存根
+			
+		}
+
+		@Override
+		public void onStatusChanged(String provider, int status, Bundle extras) {
+			// TODO 自动生成的方法存根
+			
+		}
+
+		@Override
+		public void onProviderEnabled(String provider) {
+			// TODO 自动生成的方法存根
+			
+		}
+
+		@Override
+		public void onProviderDisabled(String provider) {
+			// TODO 自动生成的方法存根
+			
+		}
+		
+	};
+	
+	
+	
+	
+	
+	
+	
+	private void navigateTo(Location location) {
+		if(isFirstLocate){
+			if(location==null){
+				Toast.makeText(this,"位置为空！,定位失败!",Toast.LENGTH_SHORT).show();
+			}
+			
+			LatLng ll=new LatLng(location.getLatitude(),location.getLongitude());// 获取维度，经度
+			MapStatusUpdate update= MapStatusUpdateFactory.newLatLng(ll);
+			baidumap.animateMapStatus(update);
+			update=MapStatusUpdateFactory.zoomTo(16f);
+			baidumap.animateMapStatus(update);
+			isFirstLocate=false;
+		}
+		
+		// TODO 自动生成的方法存根
+		
+	}
+
+
+
+
+
+
+
+
+
+
+	@Override
+	protected void onResume() {
+		// TODO 自动生成的方法存根
+		super.onResume();
+		mapview.onResume();
+	}
+
+
+
+
+
+
+
+
+
+
+	@Override
+	protected void onPause() {
+		// TODO 自动生成的方法存根
+		super.onPause();
+		mapview.onPause();
+	}
+
+
+
+
+
+
+
+
+
+
+	@Override
+	protected void onDestroy() {
+		// TODO 自动生成的方法存根
+		super.onDestroy();
+		mapview.onDestroy();
+		if(locationmanager!=null){
+			locationmanager.removeUpdates(locationListener);
+		}
+	}
+
+
+
+
+
+
+
+
+
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.main, menu);
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		// Handle action bar item clicks here. The action bar will
+		// automatically handle clicks on the Home/Up button, so long
+		// as you specify a parent activity in AndroidManifest.xml.
+		int id = item.getItemId();
+		if (id == R.id.action_settings) {
+			return true;
+		}
+		return super.onOptionsItemSelected(item);
+	}
+}
