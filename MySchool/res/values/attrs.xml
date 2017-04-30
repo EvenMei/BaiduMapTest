@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <declare-styleable name="CircleImageView">
+        <attr name="border_width" format="dimension"/>
+        <attr name="border_color" format="color"/>
+        
+    </declare-styleable>
+    
+    
+    <declare-styleable name="VariousShapeImageView" >
+        <attr name="shape" format="string">
+            <enum name="circle" value="0"/>
+            <enum name="round" value="1"/>
+            <enum name="oval" value="2"/>
+        </attr>
+         <attr name="mborder_width" format="dimension"/>
+        <attr name="mborder_color" format="color"/>
+        
+    </declare-styleable>
+    
+    
+   
+    
+    
+    <attr name="Visible_tab_count" format="integer"/>
+        
+    <declare-styleable name="ViewPagerIndicator">
+        <attr name="Visible_tab_count"/>
+        
+    </declare-styleable>
+    
+    
+    
+</resources>

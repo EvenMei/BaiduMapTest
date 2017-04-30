@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+     android:id="@+id/left_menu_layout"
+    android:layout_width="match_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/bizhi"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="30dp" 
+        android:paddingTop="30dp">
+        <com.example.myschool.View.CircleImageView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/profile_image"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/icon"
+            app:border_color="#FFffffff"
+            app:border_width="1dp" >
+            
+        </com.example.myschool.View.CircleImageView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_marginTop="18dp"
+            android:layout_height="28dp"
+           android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/profile_image"
+            
+            android:gravity="center_vertical"
+            android:paddingLeft="15.0dip"
+            android:text="掌上南邮通达"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="16sp" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tvToday"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="50.0dip"
+        android:clickable="true"
+        android:drawablePadding="1.0dip"
+        android:gravity="center_vertical"
+        android:paddingLeft="30.0dip"
+        android:paddingRight="10.0dip"
+        android:text="教务系统"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:textSize="16.0sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2.0dip"
+        android:background="@drawable/line" />
+
+    <TextView
+         android:id="@+id/my_course_textview"
+        android:layout_width="match_parent"
+        android:layout_height="50.0dip"
+        android:clickable="true"
+        android:drawablePadding="1.0dip"
+        android:gravity="center_vertical"
+        android:paddingLeft="30.0dip"
+        android:paddingRight="10.0dip"
+        android:text="我的课表"
+         android:textStyle="bold"
+        android:textColor="@color/white"
+        android:textSize="16.0sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2.0dip"
+        android:background="@drawable/line" />
+
+    <TextView
+         android:id="@+id/tvDiscussMeeting"
+        android:layout_width="match_parent"
+        android:layout_height="50.0dip"
+        android:clickable="true"
+        android:drawablePadding="1.0dip"
+        android:gravity="center_vertical"
+        android:paddingLeft="30.0dip"
+        android:paddingRight="10.0dip"
+        android:text="学校地图"
+         android:textStyle="bold"
+        android:textColor="@color/white"
+        android:textSize="16.0sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2.0dip"
+        android:background="@drawable/line" />
+    <TextView
+         android:id="@+id/tvMyFavorites"
+        android:layout_width="match_parent"
+        android:layout_height="50.0dip"
+        android:clickable="true"
+        android:drawablePadding="1.0dip"
+        android:gravity="center_vertical"
+        android:paddingLeft="30.0dip"
+        android:paddingRight="10.0dip"
+        android:text="班车路线"
+         android:textStyle="bold"
+        android:textColor="@color/white"
+        android:textSize="16.0sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2.0dip"
+        android:background="@drawable/line" />
+    <TextView
+        android:id="@+id/tvMyComments"
+        android:layout_width="match_parent"
+        android:layout_height="50.0dip"
+        android:clickable="true"
+        android:drawablePadding="1.0dip"
+        android:gravity="center_vertical"
+        android:paddingLeft="30.0dip"
+        android:paddingRight="10.0dip"
+        android:text="功能实现五"
+         android:textStyle="bold"
+        android:textColor="@color/white"
+        android:textSize="16.0sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2.0dip"
+        android:background="@drawable/line" />
+    <TextView
+         android:id="@+id/tvMySettings"
+        android:layout_width="match_parent"
+        android:layout_height="50.0dip"
+        android:clickable="true"
+        android:drawablePadding="1.0dip"
+        android:gravity="center_vertical"
+        android:paddingLeft="30.0dip"
+        android:paddingRight="10.0dip"
+        android:text="设置"
+         android:textStyle="bold"
+        android:textColor="@color/white"
+        android:textSize="16.0sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2.0dip"
+        android:background="@drawable/line" />
+	
+</LinearLayout>
